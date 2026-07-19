@@ -1,5 +1,7 @@
 # Nexus Global Logistics - Automated Inventory Dashboard
 
+![Dashboard Preview](dashboard_preview.jpg)
+
 An interactive supply chain dashboard designed to bridge the gap between inventory monitoring and business workflow execution. This project highlights practical data modeling, dynamic UI controls, and workflow automation within an enterprise logistics framework.
 
 ## Key Features & Functionality
