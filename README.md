@@ -8,7 +8,7 @@ Instead of relying on heavy plugins or external software, the entire system runs
 
 ## 📊 Dashboard Preview
 ![Dashboard Layout Preview](dashboard_preview.jpg)
-*(Note: Upload your actual dashboard screenshot to your repository with this exact file name to display it here).*
+
 
 ---
 
