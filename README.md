@@ -1,50 +1,47 @@
-# Supply Chain Inventory & Automated Procurement Engine
+# Excel Supply Chain Dashboard & Automated Procurement
 
-An interactive, end-to-end Excel analytics tool designed to streamline supply chain visibility and eliminate the manual friction of reordering stock. This project addresses a common business bottleneck: the lag time between identifying inventory deficits and alerting the purchasing team. 
+This project is a functional, end-to-end supply chain tool built to solve a common operational problem: the time lag between spotting inventory shortages and notifying the purchasing team. 
 
-By utilizing native Excel features (Power Query, Data Modeling, and VBA), this solution runs entirely locally without requiring external database plugins or administrative IT overrides.
+Instead of relying on heavy plugins or external software, the entire system runs natively within Excel using Power Query and VBA, making it lightweight and easy to deploy on standard office machines.
 
 ---
 
 ## 📊 Dashboard Preview
 ![Dashboard Layout Preview](dashboard_preview.jpg)
-*(Note: Replace this image file in your repository with your actual dashboard screenshot to display it here).*
+*(Note: Upload your actual dashboard screenshot to your repository with this exact file name to display it here).*
 
 ---
 
-## 🛠️ System Architecture & Mechanics
+## 🛠️ How It Works
 
-### 1. Extraction & Data Transformation (Power Query)
-* **ETL Pipeline:** Connects directly to raw, multi-source logistics spreadsheets, bypassing manual data compilation.
-* **Schema Standardization:** Removes structural inconsistencies, reformats changing regional metrics, and removes duplicate operational rows.
-* **Data Modeling:** Produces optimized, indexed flat tables ready for pivot analysis, keeping the overall workbook file size lightweight and highly responsive.
+### 1. Data Cleaning & Connections (Power Query)
+* **Automated Data Prep:** Connects directly to raw supply chain sheets, eliminating the need to manually copy and paste new weekly data.
+* **Data Formatting:** Cleans up structural errors, normalizes regional data formats, and removes duplicate rows automatically.
+* **Performance Optimization:** Builds a clean, indexed data model that handles thousands of rows while keeping the workbook fast and responsive.
 
-### 2. User Interface & Dynamic Controls
-* **Cross-Filtering:** Integrates synchronized visual slicers across parallel pivot tables, allowing users to drill down by region, status, and timeline simultaneously without breaking the master layout.
-* **One-Click State Reset:** Features a dedicated control macro that instantly clears all active UI filters, returning the entire screen to the default global view smoothly.
+### 2. User Interface & Controls
+* **Dynamic Filtering:** Uses synchronized slicers across multiple pivot tables, allowing users to filter by region, stock status, and timeline simultaneously without messing up the layout.
+* **One-Click Reset:** Features a simple macro mapped to a control button that instantly clears all active filters and returns the dashboard to the default view.
 
 ### 3. Automated Reorder Engine (VBA)
-* **Exception Scanning Loop:** A targeted VBA loop dynamically text-scans active rows to instantly evaluate current stock tallies against defined target safety thresholds.
-* **Data Aggregation:** Collects all flagged deficit items, SKUs, and replenishment numbers, compiling them into a clean, human-readable text string.
-* **MAPI System Integration:** Automatically opens a pre-formatted Outlook email draft populated with the target purchasing team's address, a clear subject line, and the itemized deficit summary—removing copy-paste workflows entirely.
+* **Row Auditing:** Runs a quick background loop that scans active inventory rows to check current stock numbers against target safety stock levels.
+* **Text Compilation:** Automatically pulls the SKUs, item names, and exact shortages for any product that falls below safety limits, formatting them into a clear summary.
+* **Outlook Integration:** Uses native system hooks to open a pre-formatted Outlook email draft populated with the purchasing team's address, a clear subject line, and the itemized shortage list—removing manual data entry entirely.
 
 ---
 
-## 📋 Operational Workflow
+## 📋 How to Use the Project
 
-1. **Refresh Data:** Open the workbook and click "Refresh All" to pull the latest logistics records through the Power Query pipeline.
-2. **Analyze Trends:** Use the synchronized dashboard slicers to evaluate regional performance metrics and high-level stockout alerts.
-3. **Execute Alert:** Click the **"Generate Alerts"** interface button. The background script instantly audits the rows, isolates the shortages, and generates your structured email draft instantly.
+1. **Refresh the Data:** Open the workbook and click "Refresh All" to pull the latest supply chain records through the Power Query pipeline.
+2. **Analyze the Data:** Use the visual slicers on the dashboard to spot regional trends or active stockouts.
+3. **Trigger the Automation:** Click the **"Generate Alerts"** button on the screen. The script instantly runs the inventory check and creates your email draft.
 
 ---
 
-## ⚙️ Repository Setup Instructions
+## ⚙️ Setup Instructions
 
-To interact with the dashboard and run the automated workflows locally:
+To test the dashboard and automation tools locally:
 
 1. Download the `Nexus_Inventory_Command_Center.xlsm` file from this repository.
 2. Open the file using desktop Microsoft Excel.
-3. **Important:** Click **"Enable Macros"** at the top yellow security bar when prompted, as the email automation and filter-reset utilities depend entirely on the embedded VBA modules.
-
----
-*Developed as a practical portfolio project to demonstrate clean data structure design, functional UI implementation, and localized business process automation.*
+3. **Note:** Click **"Enable Macros"** on the yellow security banner at the top of the screen when opening the file, as the filter reset and email generation functions depend entirely on the embedded VBA code.
